@@ -1,7 +1,9 @@
 language: node_js
 node_js:
-  - '6'
-  - '5'
+  - 'stable'
+  - '12'
+  - '10'
+  - '8'
 env:
   - CXX=g++-4.8
 addons:
@@ -10,6 +12,8 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+cache: yarn
 script:
-  - npm run lint
-  - npm run test
+  - yarn lint
+  - yarn test
+  - yarn build --release
